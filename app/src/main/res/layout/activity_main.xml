@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/redCounter3"
+        android:id="@+id/stormCounter"
         android:layout_width="112dp"
         android:layout_height="112dp"
         android:layout_marginTop="264dp"
@@ -135,7 +135,7 @@
         android:textColor="#000000"
         android:textSize="34sp"
         app:backgroundTint="#1d964c"
-        app:layout_constraintBottom_toTopOf="@+id/redCounter3"
+        app:layout_constraintBottom_toTopOf="@+id/stormCounter"
         app:layout_constraintEnd_toStartOf="@+id/opponentLifeDecrease"
         app:layout_constraintStart_toEndOf="@+id/lifeDecrease"
         app:layout_constraintTop_toBottomOf="@+id/lifeCounter" />
@@ -150,7 +150,7 @@
         android:textColor="#000000"
         android:textSize="34sp"
         app:backgroundTint="#1d964c"
-        app:layout_constraintBottom_toTopOf="@+id/redCounter3"
+        app:layout_constraintBottom_toTopOf="@+id/stormCounter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/opponentLifeDecrease"
         app:layout_constraintTop_toBottomOf="@+id/opponentLifeCounter" />
@@ -236,7 +236,7 @@
         android:textColor="#000000"
         android:textSize="34sp"
         app:backgroundTint="#1d964c"
-        app:layout_constraintBottom_toTopOf="@+id/redCounter3"
+        app:layout_constraintBottom_toTopOf="@+id/stormCounter"
         app:layout_constraintEnd_toStartOf="@+id/lifeIncrease"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lifeCounter" />
@@ -251,7 +251,7 @@
         android:textColor="#000000"
         android:textSize="34sp"
         app:backgroundTint="#1d964c"
-        app:layout_constraintBottom_toTopOf="@+id/redCounter3"
+        app:layout_constraintBottom_toTopOf="@+id/stormCounter"
         app:layout_constraintEnd_toStartOf="@+id/opponentLifeIncrease"
         app:layout_constraintStart_toEndOf="@+id/lifeIncrease"
         app:layout_constraintTop_toBottomOf="@+id/opponentLifeCounter" />
