@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TextView stormGlow = findViewById(R.id.stormGlow);
+
         Button increaseLifeButton = findViewById(R.id.lifeIncrease);
         Button decreaseLifeButton = findViewById(R.id.lifeDecrease);
         TextView lifeCounter = findViewById(R.id.lifeCounter);
@@ -52,30 +54,76 @@ public class MainActivity extends AppCompatActivity {
         increaseOpponentLifeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                opponentLifeCounter.setText(String.valueOf(Integer.parseInt((String) opponentLifeCounter.getText()) + 1));
+                int stormValue = Integer.parseInt((String) stormCounter.getText());
+                int opponentLifeTotal = Integer.parseInt((String) opponentLifeCounter.getText());
+
+                opponentLifeCounter.setText(String.valueOf(opponentLifeTotal + 1));
+                opponentLifeTotal++;
+
+                if (grapeshotCalculation(stormValue) >= opponentLifeTotal){
+                    stormGlow.setVisibility(View.VISIBLE);
+                }
+                else{
+                    stormGlow.setVisibility(View.INVISIBLE);
+                }
             }
+
+
         });
 
         decreaseOpponentLifeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                opponentLifeCounter.setText(String.valueOf(Integer.parseInt((String) opponentLifeCounter.getText()) - 1));
+                int stormValue = Integer.parseInt((String) stormCounter.getText());
+                int opponentLifeTotal = Integer.parseInt((String) opponentLifeCounter.getText());
+
+                opponentLifeCounter.setText(String.valueOf(opponentLifeTotal - 1));
+                opponentLifeTotal--;
+
+                if (grapeshotCalculation(stormValue) >= opponentLifeTotal){
+                    stormGlow.setVisibility(View.VISIBLE);
+                }
+                else {
+                    stormGlow.setVisibility(View.INVISIBLE);
+                }
             }
         });
 
         increaseStormButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                stormCounter.setText(String.valueOf(Integer.parseInt((String) stormCounter.getText()) + 1));
+                int stormValue = Integer.parseInt((String) stormCounter.getText());
+                int opponentLifeTotal = Integer.parseInt((String) opponentLifeCounter.getText());
+                stormCounter.setText(String.valueOf(stormValue + 1));
+                stormValue++;
+
+                if (grapeshotCalculation(stormValue) >= opponentLifeTotal){
+                    stormGlow.setVisibility(View.VISIBLE);
+                }
+                else{
+                    stormGlow.setVisibility(View.INVISIBLE);
+                }
             }
         });
 
         decreaseStormButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int currentStormValue = Integer.parseInt((String) stormCounter.getText());
-                if (currentStormValue != 0){
-                    stormCounter.setText(String.valueOf(currentStormValue - 1));
+                int stormValue = Integer.parseInt((String) stormCounter.getText());
+                int opponentLifeTotal = Integer.parseInt((String) opponentLifeCounter.getText());
+
+                if (stormValue != 0){
+                    stormCounter.setText(String.valueOf(stormValue - 1));
+                    stormValue--;
+                }
+
+
+
+                if (grapeshotCalculation(stormValue) >= opponentLifeTotal){
+                    stormGlow.setVisibility(View.VISIBLE);
+                }
+                else{
+                    stormGlow.setVisibility(View.INVISIBLE);
                 }
             }
         });
@@ -113,5 +161,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public int grapeshotCalculation(int stormValue){
+        // Cast Grapeshot
+        int damage = stormValue + 1;
+        stormValue++;
+        // Remand Grapeshot
+        damage--;
+        stormValue++;
+        // Cast Grapeshot again
+        damage += stormValue + 1;
+
+        return damage;
     }
 }

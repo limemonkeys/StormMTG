@@ -8,10 +8,20 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/stormGlow"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:background="@drawable/rounded_corners_storm_glow"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/stormIncrease"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lifeIncrease" />
+
+    <TextView
         android:id="@+id/stormCounter"
         android:layout_width="112dp"
         android:layout_height="112dp"
-        android:layout_marginTop="264dp"
         android:background="@drawable/rounded_corners_storm"
         android:fontFamily="@font/aldrich"
         android:gravity="center_horizontal|center_vertical"
@@ -22,17 +32,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/lifeIncrease" />
 
     <TextView
         android:id="@+id/lifeCounter"
         android:layout_width="112dp"
         android:layout_height="112dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/rounded_corners_green"
         android:fontFamily="@font/aldrich"
         android:gravity="center_horizontal|center_vertical"
-        android:text="0"
+        android:text="20"
         android:textColor="#000000"
         android:textSize="52sp"
         app:layout_constraintBottom_toTopOf="@+id/lifeIncrease"
@@ -44,10 +54,11 @@
         android:id="@+id/opponentLifeCounter"
         android:layout_width="112dp"
         android:layout_height="112dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/rounded_corners_green"
         android:fontFamily="@font/aldrich"
         android:gravity="center_horizontal|center_vertical"
-        android:text="0"
+        android:text="20"
         android:textColor="#000000"
         android:textSize="52sp"
         app:layout_constraintBottom_toTopOf="@+id/opponentLifeIncrease"
@@ -71,13 +82,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/blueCounter"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/stormIncrease" />
 
     <Button
         android:id="@+id/redDecrease"
         android:layout_width="80sp"
         android:layout_height="64sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corners_red"
         android:fontFamily="@font/aldrich"
         android:text="-"
@@ -87,12 +99,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/redIncrease"
         app:layout_constraintStart_toEndOf="@+id/blueIncrease"
-        app:layout_constraintTop_toBottomOf="@+id/redCounter" />
+        app:layout_constraintTop_toBottomOf="@+id/redCounter"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/redIncrease"
         android:layout_width="80sp"
         android:layout_height="64sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corners_red"
         android:fontFamily="@font/aldrich"
         android:text="+"
@@ -102,7 +117,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/redDecrease"
-        app:layout_constraintTop_toBottomOf="@+id/redCounter" />
+        app:layout_constraintTop_toBottomOf="@+id/redCounter"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/stormIncrease"
@@ -110,25 +126,27 @@
         android:layout_height="64sp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="392dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="112dp"
         android:layout_marginRight="112dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corners_red"
         android:fontFamily="@font/aldrich"
         android:text="+"
         android:textColor="#000000"
         android:textSize="34sp"
         app:backgroundTint="#ccb419"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/redCounter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/stormDecrease"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/stormCounter" />
 
     <Button
         android:id="@+id/lifeIncrease"
         android:layout_width="80sp"
         android:layout_height="64sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corners_red"
         android:fontFamily="@font/aldrich"
         android:text="+"
@@ -144,6 +162,8 @@
         android:id="@+id/opponentLifeIncrease"
         android:layout_width="80sp"
         android:layout_height="64sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corners_red"
         android:fontFamily="@font/aldrich"
         android:text="+"
@@ -159,6 +179,8 @@
         android:id="@+id/blueIncrease"
         android:layout_width="80sp"
         android:layout_height="64sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corners_red"
         android:fontFamily="@font/aldrich"
         android:text="+"
@@ -168,7 +190,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/redDecrease"
         app:layout_constraintStart_toEndOf="@+id/blueDecrease"
-        app:layout_constraintTop_toBottomOf="@+id/blueCounter" />
+        app:layout_constraintTop_toBottomOf="@+id/blueCounter"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/blueCounter"
@@ -186,13 +209,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/redCounter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/stormDecrease" />
 
     <Button
         android:id="@+id/blueDecrease"
         android:layout_width="80sp"
         android:layout_height="64sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corners_red"
         android:fontFamily="@font/aldrich"
         android:text="-"
@@ -202,7 +226,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/blueIncrease"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/blueCounter" />
+        app:layout_constraintTop_toBottomOf="@+id/blueCounter"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/stormDecrease"
@@ -210,26 +235,27 @@
         android:layout_height="64sp"
         android:layout_marginStart="112dp"
         android:layout_marginLeft="112dp"
-        android:layout_marginTop="392dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corners_red"
         android:fontFamily="@font/aldrich"
         android:text="-"
         android:textColor="#000000"
         android:textSize="34sp"
         app:backgroundTint="#ccb419"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/blueCounter"
         app:layout_constraintEnd_toStartOf="@+id/stormIncrease"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/stormCounter" />
 
     <Button
         android:id="@+id/lifeDecrease"
         android:layout_width="80sp"
         android:layout_height="64sp"
+        android:layout_marginTop="1dp"
         android:background="@drawable/rounded_corners_red"
         android:fontFamily="@font/aldrich"
         android:text="-"
@@ -245,6 +271,8 @@
         android:id="@+id/opponentLifeDecrease"
         android:layout_width="80sp"
         android:layout_height="64sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corners_red"
         android:fontFamily="@font/aldrich"
         android:text="-"
