@@ -51,6 +51,40 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/poisonCounter"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/rounded_corners_green"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="0"
+        android:textColor="#000000"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/lifeCounter"
+        app:layout_constraintEnd_toStartOf="@+id/opponentPoisonDecrease"
+        app:layout_constraintStart_toEndOf="@+id/poisonDecrease"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/opponentPoisonCounter"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:background="@drawable/rounded_corners_green"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="0"
+        android:textColor="#000000"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/opponentLifeCounter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/opponentPoisonDecrease"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/opponentLifeCounter"
         android:layout_width="112dp"
         android:layout_height="112dp"
@@ -266,6 +300,82 @@
         app:layout_constraintEnd_toStartOf="@+id/lifeIncrease"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lifeCounter" />
+
+    <Button
+        android:id="@+id/poisonDecrease"
+        android:layout_width="48sp"
+        android:layout_height="40sp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rounded_corners_red"
+        android:fontFamily="@font/aldrich"
+        android:text="-"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:backgroundTint="#1d964c"
+        app:layout_constraintBottom_toTopOf="@+id/lifeCounter"
+        app:layout_constraintEnd_toStartOf="@+id/poisonCounter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/poisonIncrease" />
+
+    <Button
+        android:id="@+id/poisonIncrease"
+        android:layout_width="48sp"
+        android:layout_height="40sp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rounded_corners_red"
+        android:fontFamily="@font/aldrich"
+        android:text="+"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:backgroundTint="#1d964c"
+        app:layout_constraintBottom_toTopOf="@+id/poisonDecrease"
+        app:layout_constraintEnd_toStartOf="@+id/poisonCounter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/opponentPoisonDecrease"
+        android:layout_width="48sp"
+        android:layout_height="40sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rounded_corners_red"
+        android:fontFamily="@font/aldrich"
+        android:text="-"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:backgroundTint="#1d964c"
+        app:layout_constraintBottom_toTopOf="@+id/opponentLifeCounter"
+        app:layout_constraintEnd_toStartOf="@+id/opponentPoisonCounter"
+        app:layout_constraintStart_toEndOf="@+id/poisonCounter"
+        app:layout_constraintTop_toBottomOf="@+id/opponentPoisonIncrease" />
+
+    <Button
+        android:id="@+id/opponentPoisonIncrease"
+        android:layout_width="48sp"
+        android:layout_height="40sp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rounded_corners_red"
+        android:fontFamily="@font/aldrich"
+        android:text="+"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:backgroundTint="#1d964c"
+        app:layout_constraintBottom_toTopOf="@+id/opponentPoisonDecrease"
+        app:layout_constraintEnd_toStartOf="@+id/opponentPoisonCounter"
+        app:layout_constraintStart_toEndOf="@+id/poisonCounter"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/opponentLifeDecrease"

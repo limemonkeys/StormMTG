@@ -15,7 +15,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView stormGlow = findViewById(R.id.stormGlow);
+        Button increasePoisonButton = findViewById(R.id.poisonIncrease);
+        Button decreasePoisonButton = findViewById(R.id.poisonDecrease);
+        TextView poisonCounter = findViewById(R.id.poisonCounter);
+
+        Button increaseOpponentPoisonButton = findViewById(R.id.opponentPoisonIncrease);
+        Button decreaseOpponentPoisonButton = findViewById(R.id.opponentPoisonDecrease);
+        TextView opponentPoisonCounter = findViewById(R.id.opponentPoisonCounter);
 
         Button increaseLifeButton = findViewById(R.id.lifeIncrease);
         Button decreaseLifeButton = findViewById(R.id.lifeDecrease);
@@ -37,8 +43,52 @@ public class MainActivity extends AppCompatActivity {
         Button decreaseRedButton = findViewById(R.id.redDecrease);
         TextView redCounter = findViewById(R.id.redCounter);
 
+        TextView stormGlow = findViewById(R.id.stormGlow);
+
         Button dumpCountersButton = findViewById(R.id.dumpButton);
         Button refreshAllButton = findViewById(R.id.refreshButton);
+
+        poisonCounter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                poisonCounter.setText(String.valueOf(Integer.parseInt((String) poisonCounter.getText()) + 1));
+            }
+        });
+
+        increasePoisonButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                poisonCounter.setText(String.valueOf(Integer.parseInt((String) poisonCounter.getText()) + 1));
+            }
+        });
+
+        decreasePoisonButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                poisonCounter.setText(String.valueOf(Integer.parseInt((String) poisonCounter.getText()) - 1));
+            }
+        });
+
+        opponentPoisonCounter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opponentPoisonCounter.setText(String.valueOf(Integer.parseInt((String) opponentPoisonCounter.getText()) + 1));
+            }
+        });
+
+        increaseOpponentPoisonButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opponentPoisonCounter.setText(String.valueOf(Integer.parseInt((String) opponentPoisonCounter.getText()) + 1));
+            }
+        });
+
+        decreaseOpponentPoisonButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opponentPoisonCounter.setText(String.valueOf(Integer.parseInt((String) opponentPoisonCounter.getText()) - 1));
+            }
+        });
 
         lifeCounter.setOnClickListener(new View.OnClickListener() {
             @Override
