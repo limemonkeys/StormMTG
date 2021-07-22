@@ -37,6 +37,16 @@ public class MainActivity extends AppCompatActivity {
         Button decreaseRedButton = findViewById(R.id.redDecrease);
         TextView redCounter = findViewById(R.id.redCounter);
 
+        Button dumpCountersButton = findViewById(R.id.dumpButton);
+        Button refreshAllButton = findViewById(R.id.refreshButton);
+
+        lifeCounter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lifeCounter.setText(String.valueOf(Integer.parseInt((String) lifeCounter.getText()) + 1));
+            }
+        });
+
         increaseLifeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +59,26 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 lifeCounter.setText(String.valueOf(Integer.parseInt((String) lifeCounter.getText()) - 1));
             }
+        });
+
+        opponentLifeCounter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int stormValue = Integer.parseInt((String) stormCounter.getText());
+                int opponentLifeTotal = Integer.parseInt((String) opponentLifeCounter.getText());
+
+                opponentLifeCounter.setText(String.valueOf(opponentLifeTotal + 1));
+                opponentLifeTotal++;
+
+                if (grapeshotCalculation(stormValue) >= opponentLifeTotal){
+                    stormGlow.setVisibility(View.VISIBLE);
+                }
+                else{
+                    stormGlow.setVisibility(View.INVISIBLE);
+                }
+            }
+
+
         });
 
         increaseOpponentLifeButton.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +114,23 @@ public class MainActivity extends AppCompatActivity {
                     stormGlow.setVisibility(View.VISIBLE);
                 }
                 else {
+                    stormGlow.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        stormCounter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int stormValue = Integer.parseInt((String) stormCounter.getText());
+                int opponentLifeTotal = Integer.parseInt((String) opponentLifeCounter.getText());
+                stormCounter.setText(String.valueOf(stormValue + 1));
+                stormValue++;
+
+                if (grapeshotCalculation(stormValue) >= opponentLifeTotal){
+                    stormGlow.setVisibility(View.VISIBLE);
+                }
+                else{
                     stormGlow.setVisibility(View.INVISIBLE);
                 }
             }
@@ -128,6 +175,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        blueCounter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                blueCounter.setText(String.valueOf(Integer.parseInt((String) blueCounter.getText()) + 1));
+            }
+        });
+
         increaseBlueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,6 +199,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        redCounter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redCounter.setText(String.valueOf(Integer.parseInt((String) redCounter.getText()) + 1));
+            }
+        });
+
         increaseRedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,6 +220,28 @@ public class MainActivity extends AppCompatActivity {
                 if (currentStormValue != 0){
                     redCounter.setText(String.valueOf(currentStormValue - 1));
                 }
+            }
+        });
+
+        dumpCountersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stormGlow.setVisibility(View.INVISIBLE);
+                stormCounter.setText("0");
+                redCounter.setText("0");
+                blueCounter.setText("0");
+            }
+        });
+
+        refreshAllButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stormGlow.setVisibility(View.INVISIBLE);
+                lifeCounter.setText(String.valueOf(20));
+                opponentLifeCounter.setText(String.valueOf(20));
+                stormCounter.setText(String.valueOf(0));
+                redCounter.setText(String.valueOf(0));
+                blueCounter.setText(String.valueOf(0));
             }
         });
     }
