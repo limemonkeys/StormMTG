@@ -287,6 +287,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 stormGlow.setVisibility(View.INVISIBLE);
+                poisonCounter.setText(String.valueOf(0));
+                opponentPoisonCounter.setText(String.valueOf(0));
                 lifeCounter.setText(String.valueOf(20));
                 opponentLifeCounter.setText(String.valueOf(20));
                 stormCounter.setText(String.valueOf(0));
