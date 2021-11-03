@@ -406,6 +406,21 @@
         app:layout_constraintTop_toBottomOf="@+id/lifeIncrease" />
 
     <Button
+        android:id="@+id/helpButton"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/ic_baseline_help_outline_24"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/stormDecrease"
+        app:layout_constraintEnd_toStartOf="@+id/stormGlow"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lifeDecrease"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <Button
         android:id="@+id/refreshButton"
         android:layout_width="64dp"
         android:layout_height="64dp"
@@ -430,5 +445,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/poisonCounter"
         app:srcCompat="@drawable/crown" />
+
+    <CheckBox
+        android:id="@+id/grapeRemand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:fontFamily="@font/aldrich"
+        android:text="GR"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/blueCounter"
+        app:layout_constraintEnd_toStartOf="@+id/stormGlow"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doubleGrape" />
+
+    <CheckBox
+        android:id="@+id/doubleGrape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:fontFamily="@font/aldrich"
+        android:text="GG"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/grapeRemand"
+        app:layout_constraintEnd_toStartOf="@+id/stormGlow"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

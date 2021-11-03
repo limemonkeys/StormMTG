@@ -12,5 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="colorAccent">#AA2323</item> <!-- Changes checkbox colour (red used within app) -->
+        <item name="android:windowBackground">#B35252</item> <!-- Changes loading screen colour -->
     </style>
 </resources>

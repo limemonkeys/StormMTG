@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
         Button increaseRedButton = findViewById(R.id.redIncrease);
         Button decreaseRedButton = findViewById(R.id.redDecrease);
         TextView redCounter = findViewById(R.id.redCounter);
+
+        CheckBox doubleGrapeCheckbox = findViewById(R.id.doubleGrape);
+        CheckBox grapeRemandCheckbox = findViewById(R.id.grapeRemand);
 
         TextView stormGlow = findViewById(R.id.stormGlow);
 
@@ -116,11 +120,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int stormValue = Integer.parseInt((String) stormCounter.getText());
                 int opponentLifeTotal = Integer.parseInt((String) opponentLifeCounter.getText());
+                boolean grapeGrapeChecked = doubleGrapeCheckbox.isChecked();
+                boolean grapeRemandChecked = grapeRemandCheckbox.isChecked();
 
                 opponentLifeCounter.setText(String.valueOf(opponentLifeTotal + 1));
                 opponentLifeTotal++;
 
-                if (grapeshotCalculation(stormValue) >= opponentLifeTotal){
+                if (canGrapeRemand(stormValue) >= opponentLifeTotal && grapeRemandChecked){
+                    stormGlow.setVisibility(View.VISIBLE);
+                }
+                else if (canGrapeGrape(stormValue) >= opponentLifeTotal && grapeGrapeChecked){
                     stormGlow.setVisibility(View.VISIBLE);
                 }
                 else{
@@ -136,11 +145,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int stormValue = Integer.parseInt((String) stormCounter.getText());
                 int opponentLifeTotal = Integer.parseInt((String) opponentLifeCounter.getText());
+                boolean grapeGrapeChecked = doubleGrapeCheckbox.isChecked();
+                boolean grapeRemandChecked = grapeRemandCheckbox.isChecked();
 
                 opponentLifeCounter.setText(String.valueOf(opponentLifeTotal + 1));
                 opponentLifeTotal++;
 
-                if (grapeshotCalculation(stormValue) >= opponentLifeTotal){
+                if (canGrapeRemand(stormValue) >= opponentLifeTotal && grapeRemandChecked){
+                    stormGlow.setVisibility(View.VISIBLE);
+                }
+                else if (canGrapeGrape(stormValue) >= opponentLifeTotal && grapeGrapeChecked){
                     stormGlow.setVisibility(View.VISIBLE);
                 }
                 else{
@@ -156,11 +170,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int stormValue = Integer.parseInt((String) stormCounter.getText());
                 int opponentLifeTotal = Integer.parseInt((String) opponentLifeCounter.getText());
+                boolean grapeGrapeChecked = doubleGrapeCheckbox.isChecked();
+                boolean grapeRemandChecked = grapeRemandCheckbox.isChecked();
 
                 opponentLifeCounter.setText(String.valueOf(opponentLifeTotal - 1));
                 opponentLifeTotal--;
 
-                if (grapeshotCalculation(stormValue) >= opponentLifeTotal){
+                if (canGrapeRemand(stormValue) >= opponentLifeTotal && grapeRemandChecked){
+                    stormGlow.setVisibility(View.VISIBLE);
+                }
+                else if (canGrapeGrape(stormValue) >= opponentLifeTotal && grapeGrapeChecked){
                     stormGlow.setVisibility(View.VISIBLE);
                 }
                 else {
@@ -174,10 +193,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int stormValue = Integer.parseInt((String) stormCounter.getText());
                 int opponentLifeTotal = Integer.parseInt((String) opponentLifeCounter.getText());
+                boolean grapeGrapeChecked = doubleGrapeCheckbox.isChecked();
+                boolean grapeRemandChecked = grapeRemandCheckbox.isChecked();
+
                 stormCounter.setText(String.valueOf(stormValue + 1));
                 stormValue++;
 
-                if (grapeshotCalculation(stormValue) >= opponentLifeTotal){
+                if (canGrapeRemand(stormValue) >= opponentLifeTotal && grapeRemandChecked){
+                    stormGlow.setVisibility(View.VISIBLE);
+                }
+                else if (canGrapeGrape(stormValue) >= opponentLifeTotal && grapeGrapeChecked){
                     stormGlow.setVisibility(View.VISIBLE);
                 }
                 else{
@@ -191,10 +216,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int stormValue = Integer.parseInt((String) stormCounter.getText());
                 int opponentLifeTotal = Integer.parseInt((String) opponentLifeCounter.getText());
+                boolean grapeGrapeChecked = doubleGrapeCheckbox.isChecked();
+                boolean grapeRemandChecked = grapeRemandCheckbox.isChecked();
+
                 stormCounter.setText(String.valueOf(stormValue + 1));
                 stormValue++;
 
-                if (grapeshotCalculation(stormValue) >= opponentLifeTotal){
+                if (canGrapeRemand(stormValue) >= opponentLifeTotal && grapeRemandChecked){
+                    stormGlow.setVisibility(View.VISIBLE);
+                }
+                else if (canGrapeGrape(stormValue) >= opponentLifeTotal && grapeGrapeChecked){
                     stormGlow.setVisibility(View.VISIBLE);
                 }
                 else{
@@ -208,15 +239,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int stormValue = Integer.parseInt((String) stormCounter.getText());
                 int opponentLifeTotal = Integer.parseInt((String) opponentLifeCounter.getText());
+                boolean grapeGrapeChecked = doubleGrapeCheckbox.isChecked();
+                boolean grapeRemandChecked = grapeRemandCheckbox.isChecked();
 
                 if (stormValue != 0){
                     stormCounter.setText(String.valueOf(stormValue - 1));
                     stormValue--;
                 }
 
-
-
-                if (grapeshotCalculation(stormValue) >= opponentLifeTotal){
+                if (canGrapeRemand(stormValue) >= opponentLifeTotal && grapeRemandChecked){
+                    stormGlow.setVisibility(View.VISIBLE);
+                }
+                else if (canGrapeGrape(stormValue) >= opponentLifeTotal && grapeGrapeChecked){
                     stormGlow.setVisibility(View.VISIBLE);
                 }
                 else{
@@ -297,12 +331,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    public int grapeshotCalculation(int stormValue){
+    public int canGrapeGrape(int stormValue){
         // Cast Grapeshot
         int damage = stormValue + 1;
         stormValue++;
-        // Remand Grapeshot
+        // Cast Grapeshot again
+        damage += stormValue + 1;
+
+        return damage;
+    }
+
+    public int canGrapeRemand(int stormValue){
+        // Cast Grapeshot
+        int damage = stormValue + 1;
+        stormValue++;
+        // Remand
         damage--;
         stormValue++;
         // Cast Grapeshot again
@@ -310,4 +353,6 @@ public class MainActivity extends AppCompatActivity {
 
         return damage;
     }
+
+
 }
